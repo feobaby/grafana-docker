@@ -1,0 +1,17 @@
+version: '3.7'
+services:
+  grafana:
+    image: grafana/grafana
+    container_name: grafana_container
+    restart: always
+    ports:
+      - 3000:3000
+    volumes:
+      - grafana-storage
+    environment:
+      - GF_SECURITY_ADMIN_USER=demo
+      - GF_SECURITY_ADMIN_PASSWORD=grafana
+      - GF_USERS_DEFAULT_THEME=light
+volumes:
+  grafana-storage:
+    external: true
